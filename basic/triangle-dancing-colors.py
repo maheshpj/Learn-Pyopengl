@@ -156,20 +156,15 @@ class DancingColoredTriangle:
 
         glClearColor(0.6, 0.6, 0.8, 1.0)
 
-        # Loop until the user closes the window
         while not glfw.window_should_close(self.window):
             self.update_fps_counter(self.window)
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-            vao = self.create_vao(vbo)
             glUseProgram(self.create_shader())
-            glBindVertexArray(vao)
+            glBindVertexArray(self.create_vao(vbo))
             glDrawArrays(GL_TRIANGLES, 0, 3)
 
-            # Swap front and back buffers
             glfw.swap_buffers(self.window)
-
-            # Poll for and process events
             glfw.poll_events()
             time.sleep(0.3)
 
