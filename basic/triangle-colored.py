@@ -4,7 +4,7 @@ __author__ = 'maheshjadhav'
 
 from OpenGL.GL import *
 import glfw
-import numpy, sys
+import numpy, sys, random
 
 
 class ColoredTriangle:
@@ -34,10 +34,11 @@ class ColoredTriangle:
     ]
     vertex_data = numpy.array(points, numpy.float32)
 
+    # Generate Random colors, random.random() -> range between 0 to 1
     colors = [
-        1.0, 0.0, 0.0,
-        0.0, 1.0, 0.0,
-        0.0, 0.0, 1.0
+        random.random(), random.random(), random.random(),
+        random.random(), random.random(), random.random(),
+        random.random(), random.random(), random.random()
     ]
     colors_data = numpy.array(colors, numpy.float32)
 
